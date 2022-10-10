@@ -1,6 +1,6 @@
 <html>
 <body>
-<h2>Retrieve the Table</h2>
+<h2>Registration Form(Part I)</h2>
 <form method="post" action="submitValue1">
 <label>Name</label>
 <input type="text" name="name" /><br>

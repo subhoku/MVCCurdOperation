@@ -1,6 +1,6 @@
 <html>
 <body>
-<h2>Naukri.com Registration form</h2>
+<h2>Naukri.com Registration form I</h2>
 <form method="post" action="submitValue">
 <label>Name</label>
 <input type="text" name="name" /><br>

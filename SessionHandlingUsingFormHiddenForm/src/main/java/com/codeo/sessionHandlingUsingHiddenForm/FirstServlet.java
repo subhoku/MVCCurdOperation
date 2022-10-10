@@ -19,14 +19,18 @@ public class FirstServlet extends HttpServlet {
 	String education=null;
 	PrintWriter pw=null;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		name=request.getParameter("name");
 		email=request.getParameter("email");
 		mobile=request.getParameter("mobileno");
 		education=request.getParameter("education");
 		pw=response.getWriter();
+		System.out.println(name);
+		System.out.println(email);
 		
 		if(education.equals("12th")) {
-			pw.println("<body><form method='post' action='submitFirstServlet'>");
+			pw.println("<body><h1>Registration form for 12th Standard( Part II)");
+			pw.println("<form method='post' action='submitFirstServlet'>");
 			pw.println("<h1> 12Th Class Session</h1>");
 			pw.println("<label>Physics</label>" + 
 					"<input type='text' name='subject1'/>");
@@ -34,24 +38,25 @@ public class FirstServlet extends HttpServlet {
 					"<input type='text' name='subject2'/>");
 			pw.println("<label>Maths</label>" + 
 					"<input type='text' name='subject3'/>");
-			pw.println("<label>name</label>" + 
+			pw.println(
 					"<input type='hidden' name='fname' value='"+name+"'/>");
-			pw.println("<label>name</label>" + 
+			pw.println(
 					"<input type='hidden' name='femail' value='"+email+"'/>");
-			pw.println("<label>name</label>" + 
+			pw.println(
 					"<input type='hidden' name='fmobileno' value='"+mobile+"'/>");
-			pw.println("<label>name</label>" + 
+			pw.println(
 					"<input type='hidden' name='feducation' value='"+education+"'/><input type='submit' value='submit'/></form></body>");
 			
 		}
 		else if(education.equals("Polytechnic")) {
-			pw.println("<body><form method='post' action='submitFirstServlet'>");
+			pw.println("<body><h1>Registration form for PolyTechnic( Part II)");
+			pw.println("<form method='post' action='submitFirstServlet'>");
 			pw.println("<h1> Poly Class Session</h1>");
-			pw.println(
+			pw.println("<label>C++</label>" + 
 					"<input type='text' name='subject1'/>");
-			pw.println(
+			pw.println("<label>Java</label>" + 
 					"<input type='text' name='subject2'/>");
-			pw.println( 
+			pw.println( "<label>C Sharp</label>" + 
 					"<input type='text' name='subject3'/>");
 			pw.println(
 					"<input type='hidden' name='fname' value='"+name+"'/>");

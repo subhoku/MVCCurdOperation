@@ -16,11 +16,11 @@ public class SessionHandlingThirdServlet extends HttpServlet {
 	String education=null;
 	PrintWriter pw=null;
 	String subject1=null; String subject2=null;String subject3=null;
-	String dob=null; int age=0;
+	String dob=null; String age=null;
 	
 	public void doPost(HttpServletRequest request,  HttpServletResponse response) {
 		String dob=request.getParameter("date");
-		int age=Integer.parseInt(request.getParameter("age"));
+		String age=request.getParameter("age");
 		Cookie ckf[]=request.getCookies();
 		if(ckf!=null) {
 			 name=ckf[1].getValue();

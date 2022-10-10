@@ -2,6 +2,7 @@ package com.codeo.sessionHandlingUsingHiddenForm;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,7 +31,12 @@ public class SecondServlet extends HttpServlet {
 		subject2=request.getParameter("subject2");
 		subject3=request.getParameter("subject3");
 		pw=response.getWriter();
-		pw.println("<h1>"+name+" "+email+" "+mobile+" "+education+" "+subject1+" "+subject2+" "+subject3+"</h1>");
+		pw.println("<h1 style='blue'>"+name+" "+email+" "+mobile+" "+education+" "+subject1+" "+subject2+" "+subject3+"</h1>");
+		//DataSubmission dbsubmit=new DataSubmission();
+	
+			
+		
 	}
 
+    
 }

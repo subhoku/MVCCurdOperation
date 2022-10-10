@@ -13,9 +13,9 @@ public class SessionHandlingUsingDao {
 //Persistent Logic
 	public static DataSource ds=null;
 	public void submitData(String subject1, String subject2, String subject3, String name, String email, String mobile,
-			String education,int age,String dob) {
-		
-		 String configure_file_path="src/main/java/com/codeo/SessionHandlingUsingCookie/db.properties";
+		String education,String age,String dob) {
+		System.out.println(subject1+" "+subject2+" "+subject3+" "+education+" "+age+" "+dob);
+		 String configure_file_path="./src/main/resources/db.properties";
 		 HikariConfig hcfg=new HikariConfig(configure_file_path);
 		    HikariDataSource hdata=new HikariDataSource(hcfg);
 		    Connection con=null;
@@ -54,7 +54,7 @@ public class SessionHandlingUsingDao {
 		    catch(Exception e) {
 		    	e.printStackTrace();
 		    }
-		
+		hdata.close();
 	}
 
 }
