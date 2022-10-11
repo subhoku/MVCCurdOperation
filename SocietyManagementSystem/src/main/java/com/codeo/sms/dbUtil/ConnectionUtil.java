@@ -11,7 +11,7 @@ public class ConnectionUtil {
 	private static final String userName="root";
 	private static final String password="";
 	
-	public static Connection getConnection() {
+	public Connection getConnection() {
 		
 		Connection conn=null;
 		try {

@@ -7,6 +7,7 @@ public class SuperAdmin {
 	private String name=null;
 	private String email=null;
 	private String password=null;
+	//constructor call from SuperAdminController
 	public SuperAdmin(String name, String email, String password) {
 		super();
 		this.name = name;

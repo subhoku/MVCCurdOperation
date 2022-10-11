@@ -1,5 +1,7 @@
 package com.codeo.sms.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.annotation.WebServlet;
@@ -18,15 +20,24 @@ public class SuperAdminController extends HttpServlet{
 		String name=request.getParameter("name");
 		String emailid=request.getParameter("emailid");
 		String password=request.getParameter("password");
+		PrintWriter pw=null;
+		try {
+			pw=response.getWriter();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	   SuperAdmin superAdmin=new SuperAdmin(name,emailid,password);
 	   saDao=new SuperAdminDao();
-	   try {
-		saDao.insertSuperAdmin(superAdmin);
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	   boolean result=false;
+	   result= saDao.insertSuperAdmin(superAdmin);
+	   if(result==true) {
+		   pw.println("<body><h1 style='color:green';>Data Inserted Successfully</h1></body>");
+	   }
+	   else {
+		   pw.println("<body><h1 style='color:red';>Issue in data insertion</h1></body>");
+	   }
 		
 	}
 
