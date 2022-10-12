@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.codeo.sms.dao.SuperAdminDao;
+import com.codeo.sms.entity.SuperAdmin;
 
 @WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
@@ -28,14 +29,14 @@ SuperAdminDao sdao=null;
 		}
 		System.out.println(username+" "+password);
 		sdao=new SuperAdminDao();
-		boolean result=false;
-		result=sdao.loginServlet(username,password);
-		 if(result==true) {
-			   pw.println("<body><h1 style='color:green';>Welcome User</h1></body>");
-		   }
-		   else {
-			   pw.println("<body><h1 style='color:red';>Issue in data insertion</h1></body>");
-		   }
+	    SuperAdmin superadmin=null;
+		superadmin=sdao.loginServlet(username,password);
+		if(superadmin!=null) {
+			pw.println("Welcome: "+superadmin.getName());
+		}
+		else {
+			pw.println("Issue in Login please checkout");
+		}
 		
 		
 	}

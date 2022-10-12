@@ -3,6 +3,7 @@ package com.codeo.sms.dao;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.codeo.sms.dbUtil.ConnectionUtil;
@@ -13,7 +14,7 @@ public class SuperAdminDao {
 	SuperAdmin superadmin=null;
 	
    private final String insert_query="insert into superadmin_registration(name, email, password) values(?,?,?)";
-   
+   private final String select_login_query="select * from superadmin_registration where email=? and password=?";
    //entity object reference
 	public boolean insertSuperAdmin(SuperAdmin superadmin){
 		this.superadmin=superadmin;
@@ -52,16 +53,33 @@ public class SuperAdminDao {
 		return result1;
 	}
 
-	public boolean loginServlet(String username, String password) {
-		boolean login=false;
-		if(username.equals(superadmin.getEmail()) && password.equals(superadmin.getPassword())){
-			System.out.println("user Login succesfully"+username);
-			login=true;
+	public SuperAdmin loginServlet(String username, String password) {
+		SuperAdmin superadmin=null;
+		
+		PreparedStatement psmt=null;
+		Connection connection=null;
+		connUtil=new ConnectionUtil();
+		connection=connUtil.getConnection();
+		try {
+			psmt=connection.prepareStatement(select_login_query);
+			if(psmt!=null) {
+				psmt.setString(1, username);
+				psmt.setString(2, password);
+			}
+			/* id, name, email, password, entry_time */
+			ResultSet rs=null;
+			rs=psmt.executeQuery();
+			if(rs.next()) {
+				superadmin=new SuperAdmin();
+				superadmin.setName(rs.getString(2));
+				superadmin.setEmail(rs.getString(3));
+				superadmin.setPassword(rs.getString(4));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		else {
-			System.out.println("Issue in login");
-		}
-		return login;
+		return superadmin ;
 	}
 	
 }

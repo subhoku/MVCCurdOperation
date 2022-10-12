@@ -14,6 +14,9 @@ public class SuperAdmin {
 		this.email = email;
 		this.password = password;
 	}
+	public SuperAdmin() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getName() {
 		return name;
 	}
