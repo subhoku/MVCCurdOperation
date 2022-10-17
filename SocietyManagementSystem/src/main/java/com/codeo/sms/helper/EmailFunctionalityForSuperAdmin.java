@@ -16,7 +16,7 @@ import javax.mail.Authenticator;
 
 public class EmailFunctionalityForSuperAdmin {
 
-	public static void sendEmail(String host, String port,
+	public void sendEmail(String host, String port,
 	          final String username,   final String password, String toAddress,
 	          String subject, String message) throws AddressException, MessagingException {
 		
