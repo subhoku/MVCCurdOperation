@@ -34,6 +34,7 @@ ResultSet resultSet = null;
 <th>EmailId</th>
 <th>Mobile no</th>
 <th>Age</th>
+<th>Update</th>
 <th>Delete</th>
 	</tr>
 <%
@@ -56,6 +57,7 @@ while(resultSet.next()){
 <td><%=resultSet.getString("emp_emailid") %></td>
 <td><%=resultSet.getString("emp_mobileno") %></td>
 <td><%=resultSet.getInt("emp_age") %></td>
+<td><a href="update.jsp?id=<%=resultSet.getString("emp_id") %>"><button style="background-color:orange; border-radius:40px;">Update</button></a></td>
 <td><a href="delete.jsp?id=<%=resultSet.getString("emp_id") %>"><button style="background-color:orange; border-radius:40px;">Delete</button></a></td>
 
 </tr>
