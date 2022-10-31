@@ -54,12 +54,12 @@ try{
 		}
 		
 		if(result!=0) {
-			System.out.println("Data Inserted successfully");
-			out.println("Data Inserted Sucessfully");
+			System.out.println("Data Updated successfully");
+			out.println("Data Updated Sucessfully");
 		}
 		else {
-			System.out.println("Issue in data insertion");
-			out.println("Issue in data insertion");
+			System.out.println("Issue in data Updation");
+			out.println("Issue in data Updation");
 		}
 	
 	

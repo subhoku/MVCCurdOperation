@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import = "java.sql.*" %>
+    <%@page import="com.codeo.sms.dbUtil.ConnectionUtil"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,11 +27,7 @@ emp_mobileno=request.getParameter("mobileno");
 emp_age=Integer.parseInt(request.getParameter("age"));
 
 try{
-	Class.forName("com.mysql.cj.jdbc.Driver");
-	//establish the connection
-	
-	Connection connection=null;
-		connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+	Connection connection = ConnectionUtil.getConnection();
 		PreparedStatement psmt=null;
 		String insert_query="insert into employee_details(emp_name, emp_lastname, emp_cityname, emp_emailid, emp_mobileno, emp_age) values (?,?,?,?,?,?)";
 		if(connection!=null) {

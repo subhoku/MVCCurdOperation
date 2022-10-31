@@ -6,7 +6,7 @@
 <body>
 <center>
 <h1> Registration Form</h1>
-<form method="post" action="Insert.jsp">
+<form method="get" action="Insert.jsp" >
 <input type="text" name="name" placeholder="Enter your name"/><br><br>
 <input type="text" name="lastname" placeholder="Enter your lastname"/><br><br>
 <input type="email" name="emailid"  placeholder="Enter your emailId"/><br><br>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
        <%@ page import = "java.sql.*" %>
+       <%@page import="com.codeo.sms.dbUtil.ConnectionUtil"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,19 +11,7 @@
 <body>
 <%
 String id = request.getParameter("emp_id");
-String driver = "com.mysql.cj.jdbc.Driver";
-String connectionUrl = "jdbc:mysql://localhost:3306/";
-String database = "employee_details";
-String userid = "root";
-String password = "";
-try {
-Class.forName(driver);
-} catch (ClassNotFoundException e) {
-e.printStackTrace();
-}
-Connection connection = null;
-Statement st = null;
-ResultSet resultSet = null;
+
 %>
 <table border="13px" solid; cellspacing="10px"; cellpadding="30px";  >
 	<!-- <tr> tag is used for rows -->
@@ -40,10 +29,11 @@ ResultSet resultSet = null;
 <%
 String query="select * from employee_details";
 			
-			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
-			
-			st=connection.createStatement();
-resultSet=st.executeQuery(query);
+			Connection conn = ConnectionUtil.getConnection();
+
+			PreparedStatement ps = conn.prepareStatement(query);
+			ResultSet resultSet = ps.executeQuery();
+
 
  
 try{

@@ -1,20 +1,24 @@
 
 <%@page import="java.sql.*,java.util.*"%>
-
+<%@page import="com.codeo.sms.dbUtil.ConnectionUtil"%>
 <%
 String id=request.getParameter("id");
 
 try{
-//Register the driver
-Class.forName("com.mysql.cj.jdbc.Driver");
-//Establish the connection
-Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","");
-Statement st=con.createStatement();
+	Connection conn = ConnectionUtil.getConnection();
+	Statement st=null;
+	st=conn.createStatement();
 String query="delete from employee_details where emp_id="+id;
-int i=st.executeUpdate(query);
-
+int i=0;
+i=st.executeUpdate(query);
+if(i!=0){
+	System.out.println("Record Deleted Successfully");
+}
+else{
+	System.out.println("Issue in Record Deletion");
+}
 st.close();
-con.close();
+conn.close();
 }
 catch(Exception e1 ){
 	e1.printStackTrace();

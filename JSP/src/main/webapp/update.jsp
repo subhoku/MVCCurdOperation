@@ -1,14 +1,11 @@
 <%@page import="java.sql.*,java.util.*"%>
-
+<%@page import="com.codeo.sms.dbUtil.ConnectionUtil"%>
 <%
 String id=request.getParameter("id");
 
 try{
-//Register the driver
-Class.forName("com.mysql.cj.jdbc.Driver");
-//Establish the connection
-Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","");
-Statement st=con.createStatement();
+	Connection conn = ConnectionUtil.getConnection();
+Statement st=conn.createStatement();
 String select_query="select * from employee_details where emp_id="+id;
 ResultSet resultSet=null;
 resultSet=st.executeQuery(select_query);
@@ -28,7 +25,7 @@ while(resultSet.next()){
 <input type="text" name="cityname" placeholder="Enter your cityname" value="<%=resultSet.getString("emp_cityname")%>"/><br><br>
 <input type="text" name="age" placeholder="Enter your age" value="<%=resultSet.getString("emp_age")%>"/><br><br>
 <input type="submit" value="Update"/>
-</center>
+
 
 </form>
 
