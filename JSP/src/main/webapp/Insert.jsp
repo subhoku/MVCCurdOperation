@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@ page import = "java.sql.*" %>
     <%@page import="com.codeo.sms.dbUtil.ConnectionUtil"%>
+    <%@page errorPage="ErrorPage.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>

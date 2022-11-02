@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.codeo.sms.dao.SuperAdminDao;
+import com.codeo.sms.dao.SuperAdminDaoImpl;
 import com.codeo.sms.entity.SuperAdmin;
 import com.codeo.sms.helper.EmailFunctionalityForSuperAdmin;
 
@@ -70,7 +71,7 @@ public class SuperAdminController extends HttpServlet{
 		
 		//Persistent Logic
 	   SuperAdmin superAdmin=new SuperAdmin(name,emailid,password);
-	   saDao=new SuperAdminDao();
+	   saDao=new SuperAdminDaoImpl(); //polymorphism
 	   boolean result=false;
 	   result= saDao.insertSuperAdmin(superAdmin);
 	   if(result==true) {
