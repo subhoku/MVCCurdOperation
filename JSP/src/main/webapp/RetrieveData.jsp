@@ -9,6 +9,7 @@
 <title>Table Data </title>
 </head>
 <body>
+ <%@include file="form.jsp" %>
 <%
 String id = request.getParameter("emp_id");
 

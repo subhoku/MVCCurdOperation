@@ -7,7 +7,7 @@
 </head>  
 <body>  
 <c:set var="Income" scope="session" value="${400*4}"/>  
-<
+
 <c:out value="${Income}"/>  
 </body>  
 </html>  
