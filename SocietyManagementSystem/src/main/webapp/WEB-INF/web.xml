@@ -14,11 +14,11 @@
 </context-param>
 <context-param>
 <param-name>user</param-name>
-<param-value></param-value>
+<param-value>saraswatikidney@gmail.com</param-value>
 </context-param>
 <context-param>
 <param-name>pass</param-name>
-<param-value></param-value>
+<param-value>suvn unmx eosp cycq</param-value>
 </context-param>
  
  <welcome-file-list>
