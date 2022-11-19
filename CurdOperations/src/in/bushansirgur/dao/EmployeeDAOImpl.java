@@ -69,13 +69,18 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	public boolean save(Employee e) {
 		boolean flag = false;
 		try {
-			String sql = "INSERT INTO tbl_employee(name, department, dob)VALUES"
-					+ "('"+e.getName()+"', '"+e.getDepartment()+"', '"+e.getDob()+"')";
+			String sql = "INSERT INTO tbl_employee(name,dob,department) VALUES(?,?,?)";
 			connection = DBConnectionUtil.openConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			if(preparedStatement!=null) {
+				preparedStatement.setString(1, e.getName());
+				preparedStatement.setString(2, e.getDob());
+				preparedStatement.setString(3, e.getDepartment());
+			}
+			if(preparedStatement!=null) {
 				preparedStatement.executeUpdate();
 			}
+			
 			flag = true;
 		}catch(SQLException ex) {
 			ex.printStackTrace();

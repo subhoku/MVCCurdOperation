@@ -31,7 +31,7 @@
 					  	<input type = "text" class = "form-control" name = "department" placeholder = "Enter Department" value = "${employee.department}"/>
 					</div>
 				
-					<input type = "text" name = "id" value = "${employee.id}"/>
+					<input type = "hidden" name = "id" value = "${employee.id}"/>
 				
 					<button type = "submit" class = "btn btn-primary">Save</button>
 				</form>

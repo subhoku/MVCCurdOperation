@@ -11,6 +11,31 @@ public class Employee {
 	private String department;
 	
 	private String dob;
+	
+	
+
+	public Employee(Integer id, String name, String department, String dob) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.department = department;
+		this.dob = dob;
+	}
+	
+	
+
+	public Employee(String name, String department, String dob) {
+		super();
+		this.name = name;
+		this.department = department;
+		this.dob = dob;
+	}
+	
+	public Employee() {
+		
+	}
+
+
 
 	public Integer getId() {
 		return id;

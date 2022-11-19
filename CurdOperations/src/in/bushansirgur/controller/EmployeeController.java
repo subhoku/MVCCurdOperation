@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import in.bushansirgur.dao.EmployeeDAO;
 import in.bushansirgur.dao.EmployeeDAOImpl;
 import in.bushansirgur.model.Employee;
 
+@WebServlet("/EmployeeController")
 public class EmployeeController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -60,14 +62,12 @@ public class EmployeeController extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		
-		Employee e = new Employee();
 		name=request.getParameter("name");
 		dateOfBirth=request.getParameter("dob");
 		department=request.getParameter("department");
 		
-		e.setName(name);
-		e.setDepartment(dateOfBirth);
-		e.setDob(department);
+		Employee e = new Employee(name,dateOfBirth,department);
+
 		
 		if(id.isEmpty() || id == null) {
 			
