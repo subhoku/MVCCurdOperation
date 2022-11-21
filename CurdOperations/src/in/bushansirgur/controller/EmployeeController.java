@@ -67,6 +67,7 @@ public class EmployeeController extends HttpServlet {
 		department=request.getParameter("department");
 		
 		Employee e = new Employee(name,dateOfBirth,department);
+		System.out.println(e.toString());
 
 		
 		if(id.isEmpty() || id == null) {

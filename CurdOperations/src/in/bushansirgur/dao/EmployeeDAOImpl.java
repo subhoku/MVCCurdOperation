@@ -32,6 +32,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			resultSet = statement.executeQuery(sql);
 			while(resultSet.next()) {
 				employee = new Employee();
+				//2, 'Jhon', '12-12-1991', 'Marketing', '2022-03-28 16:29:55'
 				employee.setId(resultSet.getInt(1));
 				employee.setName(resultSet.getString(2));
 				employee.setDepartment(resultSet.getString(3));
